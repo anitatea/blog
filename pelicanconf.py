@@ -28,6 +28,16 @@ LOCALE = 'en_US'
 PATH = 'content'
 PAGE_PATHS = ['pages/en']
 ARTICLE_PATHS = ['blog/en']
+
+# i18n
+I18N_SUBSITES = {
+  'de': {
+    'PAGE_PATHS': ['pages/de'],
+    'ARTICLE_PATHS': ['blog/de'],
+    'LOCALE': 'de_DE'
+  }
+}
+
 # logo path, needs to be stored in PATH Setting
 LOGO = '/images/logo.svg'
 
@@ -37,10 +47,12 @@ HERO = [
     'image': '/images/hero/background-1.jpg',
     # for multilanguage support, create a simple dict
     'title': {
-      'en':'Some special content'
+      'en':'Some special content',
+      'de': 'Spezieller Inhalt'
     },
     'text': {
-      'en': 'Any special content you want to tease here'
+      'en': 'Any special content you want to tease here',
+      'de': 'Jeglicher spezieller Inhalt den Sie hier bewerben möchten'
     },
     'links': [
       {
@@ -71,9 +83,10 @@ HERO = [
 
 # Social widget
 SOCIAL = (
-  ('Github', 'https://www.github.com/claudio-walser/gitcd'),
-  ('Read the Docs', 'https://gitcd.readthedocs.io/en/latest/?badge=latest'),
-  ('Travis', 'https://travis-ci.org/claudio-walser/gitcd')
+  ('Github', 'https://www.github.com/claudio-walser'),
+  ('Facebook', 'https://www.facebook.com'),
+  ('Twitter', 'https://www.twitter.com'),
+  ('Google+', 'https://plus.google.com')
 )
 
 ABOUT = {
@@ -81,7 +94,8 @@ ABOUT = {
   'mail': 'info@gitcd.io',
   # keep it a string if you dont need multiple languages
   'text': {
-    'en': 'Learn more about the creator of this theme or just drop a message.'
+    'en': 'Learn more about the creator of this theme or just drop a message.',
+    'de': 'Lernen Sie den Author kennen oder hinterlassen Sie einfach eine Nachricht'
   },
   'link': 'contact.html',
   # the address is also taken for google maps
@@ -161,10 +175,3 @@ GOOGLE_MAPS_KEY = 'AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA'
 #     'LOCALE': 'es_ES'
 #   }
 # }
-
-
-
-
-
-# DEFAULT_PAGINATION = 2
-

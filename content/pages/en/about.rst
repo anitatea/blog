@@ -1,5 +1,5 @@
 About
-#################
+#####
 
 :order: 1
 :date: 2018-01-25 08:46
@@ -8,8 +8,8 @@ About
 :lang: en
 :slug: about
 
-About gitcd and it's author
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+About the author of this theme
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Profession

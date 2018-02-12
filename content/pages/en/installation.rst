@@ -1,5 +1,5 @@
 Installation
-#################
+############
 
 :order: 1
 :date: 2018-01-25 08:46
@@ -9,7 +9,7 @@ Installation
 :slug: installation
 
 Install and use this theme
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Installation
