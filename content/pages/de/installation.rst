@@ -7,6 +7,7 @@ Installation
 :summary: Wie Sie diese Theme installieren.
 :lang: de
 :slug: installation
+:use_disqus: true
 
 Installation und Anwendung dieser Theme
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
