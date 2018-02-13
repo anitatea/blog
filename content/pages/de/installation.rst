@@ -1,7 +1,7 @@
 Installation
 #################
 
-:order: 1
+:order: 2
 :date: 2018-01-25 08:46
 :icon: icon-code-outline
 :summary: Wie Sie diese Theme installieren.
