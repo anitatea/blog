@@ -1,7 +1,7 @@
 title: Using emergency room hospital data to predict wait times
 Date: 2020-03-12
 Slug: patientlywaiting
-image: /images/blog/blog_7.jpeg
+image: ./images/blog/blog_7.jpeg
 <!-- https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
 
 Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional?

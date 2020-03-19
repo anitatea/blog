@@ -1,7 +1,7 @@
 title: What's a customer worth? Modeling customer lifetime value
 Date: 2020-02-17
 Slug: CLV
-image: /images/blog/blog_6.jpeg
+image: ./images/blog/blog_6.jpeg
 
 <!-- https://images.pexels.com/photos/919436/pexels-photo-919436.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
 

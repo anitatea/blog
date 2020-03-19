@@ -4,9 +4,9 @@ from __future__ import unicode_literals
 import os
 
 AUTHOR = 'Anita Tran'
-SITENAME = 'FH5CO Marble Example'
-SITEDESCRIPTION = 'this is just an example page for the pelican-fh5co-marble theme.'
-SITEURL = 'http://localhost:8081'
+SITENAME = 'Anita Tran'
+SITEDESCRIPTION = '"And now for something completely different.” – Monty Python'
+SITEURL = 'https://anitatea.github.io/blog'
 
 # plugins
 PLUGIN_PATHS = ['pelican-plugins']
@@ -78,21 +78,11 @@ HERO = [
     'links': [
       {
         # 'icon': 'icon-code',
-        'icon':'icon-social-github-circular',
+        'icon':'fab fa-github fa-2x',
         'url': 'https://github.com/anitatea/pokemon_go',
         'text': 'Github'
       }
     ]
-  }, {
-    'image': './images/hero/background-3.jpg',
-    'title': 'A thing',
-    'text': 'Because of space issues in the man-nav, i didnt implemented Blogroll links yet.',
-    'links': []
-  }, {
-    'image': './images/hero/background-4.jpg',
-    'title': 'Ads missing as well',
-    'text': 'And since i hate any ads, this is not implemented as well',
-    'links': []
   }
 ]
 
@@ -101,7 +91,7 @@ SOCIAL = (
   ('Github', 'https://www.github.com/anitatea'),
   ('LinkedIn', 'https://www.linkedin.com/in/anitat/'),
   ('instagram', 'https://www.instagram.com/i.need.a.tea/'),
-  ('Email', 'anita.tran38@gmail.com')
+  ('email', 'anita.tran38@gmail.com')
 )
 
 ABOUT = {
@@ -137,6 +127,15 @@ DIRECT_TEMPLATES = [
   'search', # needed for tipue_search plugin
   'contact' # needed for the contact form
 ]
+
+EXTRA_PATH_METADATA = {
+#     'extra/custom.css': {'path': 'custom.css'},
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/favicon.ico': {'path': 'favicon.ico'}  # and this
+#    'extra/CNAME': {'path': 'CNAME'}
+#    'extra/LICENSE': {'path': 'LICENSE'},
+#    'extra/README': {'path': 'README'},
+}
 
 # setup disqus
 DISQUS_SHORTNAME = 'gitcd-dev'

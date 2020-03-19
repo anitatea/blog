@@ -1,7 +1,7 @@
 title: Can you doodle with Python?
 Date: 2019-12-23
 Slug: turtle
-image: /images/blog/blog_2.jpeg
+image: ./images/blog/blog_2.jpeg
 
 <!-- https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
 

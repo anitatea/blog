@@ -1,7 +1,7 @@
 title: Are you done with fake (news, friends, etc.)?
 Date: 2020-02-03
 Slug: mimesis
-image: /images/blog/blog_5.jpeg
+image: ./images/blog/blog_5.jpeg
 <!-- https://images.pexels.com/photos/2315712/pexels-photo-2315712.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 -->
 
 The Fitbit I got during the holidays got me thinking. How do these health app developers get their data to test their data? Do they really survey thousands of people about their personal data or manually input health data one by one?

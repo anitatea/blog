@@ -1,7 +1,7 @@
 title: Featuring... Feature Engineering!
 Date: 2019-12-09
 Slug: feature-engineering
-image: /images/blog/blog_1.jpeg
+image: ./images/blog/blog_1.jpeg
 
 
 <!-- https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->

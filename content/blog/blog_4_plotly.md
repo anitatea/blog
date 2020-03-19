@@ -1,7 +1,7 @@
 title: Epic visualizations to plot epidemics
 Date: 2020-01-27
 Slug: dash-plotly
-image: /images/blog/blog_4.jpeg
+image: ./images/blog/blog_4.jpeg
 <!-- https://images.pexels.com/photos/1164536/pexels-photo-1164536.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260 -->
 
 Data visualization is one of my favourite creative outlets - to draw out deeper insights from meaningful data. Like this.
