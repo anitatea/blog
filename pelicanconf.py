@@ -100,7 +100,7 @@ HERO = [
 SOCIAL = (
   ('Github', 'https://www.github.com/anitatea'),
   ('LinkedIn', 'https://www.linkedin.com/in/anitat/'),
-  ('instagram', 'https://www.instagram.com/i.need.a.tea/')
+  ('instagram', 'https://www.instagram.com/i.need.a.tea/'),
   ('Email', 'anita.tran38@gmail.com')
 )
 
