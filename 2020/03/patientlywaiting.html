@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Using emergency room hospital data to predict wait times</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Anita Tran" />
+    <meta name="description" content="Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional? It sucks. And there should definitely be a better system, right? Having volunteered …" />
+    <meta name="keywords" content="">
+<!-- Facebook and Twitter integration -->
+<meta property="og:site_name" content="FH5CO Marble Example"/>
+<meta property="og:title" content="Using emergency room hospital data to predict wait times"/>
+<meta property="og:description" content="Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional? It sucks. And there should definitely be a better system, right? Having volunteered …"/>
+<meta property="og:url" content="http://localhost:8081/2020/03/patientlywaiting.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-03-12 00:00:00-04:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://localhost:8081/author/anita-tran.html">
+<meta property="article:section" content="Projects"/>
+    <meta property="og:image" content="http://localhost:8081//images/blog/blog_7.jpeg">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:8081/theme/css/icomoon.css"> -->
+
+    <script src="https://kit.fontawesome.com/d51a65b9ad.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/bootstrap.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/flexslider.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/style.css">
+    <!-- Custom style  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/custom.css">
+    <!-- pygments code highlight -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/pygments.css">
+    <!-- tipue search -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/tipuesearch/css/tipuesearch.css">
+
+    <!-- Modernizr JS -->
+    <script src="http://localhost:8081/theme/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="/theme/js/respond.min.js"></script>
+    <![endif]-->
+        <link href="http://localhost:8081/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FH5CO Marble Example Atom">
+
+
+    <style>
+    img {
+      width: 100%;
+      height: auto;
+    }
+    </style>
+
+
+    </head>
+    <body>
+    <div id="fh5co-page">
+        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+        <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+
+            <nav class="fh5co-main-menu" role="navigation">
+              <ul class="fh5co-active"><h2 class="fh5co-heading-colored" href="http://localhost:8081/">Anita Tran</h2></ul>
+                <!--     <ul class="language-navigation">
+        <li>
+                <a class="lang-active" href="http://localhost:8081/">en</a>
+                <a href="http://localhost:8081/de/">de</a>
+        </li>
+    </ul>
+ -->
+            </nav>
+            <div class="clearfix"></div>
+            <h1 id="fh5co-logo">
+                <a href="http://localhost:8081/index.html">
+                    <img src="/images/logo.png"/>
+                </a>
+            </h1>
+            <nav class="fh5co-main-menu" role="navigation">
+<ul>
+    <!-- home link -->
+    <li><a href="http://localhost:8081/">Home</a></li>
+
+    <!-- page links -->
+            <li><a href="http://localhost:8081/pages/about/">About</a></li>
+
+
+    <!-- categories -->
+        <li><a href="http://localhost:8081/categories.html">Categories</a></li>
+
+    <!-- tags -->
+        <li><a href="http://localhost:8081/tags.html">Tags</a></li>
+
+    <!-- additional menu items from config -->
+        <!-- <li class="nav-title">Misc</li> -->
+            <li><a href="http://localhost:8081/archives.html">Archive</a></li>
+            <li><a href="http://localhost:8081/contact.html">Contact</a></li>
+
+</ul>
+<ul><li><form id="searchform" action="http://localhost:8081/search.html">
+    <input id="tipue_search_input" data-siteurl="http://localhost:8081" type="text" size="60" class="form-control search-field" name="q">
+
+    <button type="submit" class="btn btn-primary search-submit"><i class="icon-blog"></i></button>
+</form></li></ul>
+            </nav>
+
+<ul id="social">
+            <li><a href="https://www.github.com/anitatea" alt="Github"><i class="fab fa-github fa-2x"></i></a></li>
+
+            <li><a href="https://www.linkedin.com/in/anitat/" alt="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
+
+            <li><a href="https://www.instagram.com/i.need.a.tea/" alt="instagram"><i class="fab fa-instagram fa-2x"></i></i></a></li>
+
+</ul>
+        </aside>
+
+        <div id="fh5co-main">
+
+    <div class="fh5co-narrow-content article-content">
+        <h1 class="fh5co-heading-colored">Using emergency room hospital data to predict wait times</h1>
+
+        <div>by
+                <a href="author/anita-tran.html">Anita Tran</a> - Thu, 12 Mar 2020
+        </div>
+
+
+        <div class="animate-box" data-animate-effect="fadeInLeft">
+            <p class="animate-box" data-animate-effect="fadeInLeft"><!-- https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
+
+<p>Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional?</p>
+<p>It sucks. And there should definitely be a better system, right? Having volunteered at Toronto Western Hospital Emergency Department and being able to experience both sides of the system, I wanted to dig deep at what's really going on and to actually do something about it.</p>
+<p><img src="https://github.com/anitatea/patiently_waiting/raw/master/static/img/ss.png?raw=true width=300"></p>
+<p>Technologies Used
+<em>Python
+</em>Pandas
+<em>pipenv - for local storage of credentials
+</em>Beautiful Soup - Web Scraping
+<em>SKLearn pipelines
+</em>DataFrameMapper
+<em>HDBSCAN clustering
+</em>Flask
+*Google Maps API</p>
+<h3>Introduction</h3>
+<p>PATIENTLY WAITING was created as my capstone project for the Data Science Immersive program at Bitmaker / General Assembly. A beta version of this application can be found here! Check emergency room wait times around Toronto by choosing a day: https://patientlywaiting.herokuapp.com/</p>
+<h3>Data Gathering</h3>
+<p>Detailed administrative data on date, patient flow, current and past examinations in Ontario was provided by:
+* <a href="https://www.cihi.ca/en/national-ambulatory-care-reporting-system-metadata">National Ambulatory Care Reporting System (NACRS)</a></p>
+<ul>
+<li><a href="https://www.cihi.ca/en/access-data-and-report">Canadian Institude for Health Information (CIHI)</a></li>
+</ul>
+<h3>Data Modeling</h3>
+<p>The ability to accurately and reliably predict waiting times at walk-in hospital facilities can increase both patient satisfaction and hospital efficiency via a better management of patient flow. My web-app implements machine learning (ML) models to predict waiting times in the Emergency Room (ER) of the largest public hospital in the Greater Toronto Area (GTA).</p>
+<p>Several machine learning (ML) techniques were evaluated to find the most accurate and useful prediction to a user. I chose <a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">Gradient Boosting</a> among other regression models explored for predicting wait times.</p>
+<p><strong>PATIENTLY WAITING</strong> is currently in beta testing. If you notice any bugs, have any questions or suggestions, I'd love to hear from you: <a href="anita.tran38@gmail.com?subject=PatientlyWaiting">anita.tran38@gmail.com</a>.</p>
+<p><img src="https://media.makeameme.org/created/me-patiently-waiting-399b1150e6.jpg" width=300></p>
+<h3>Planned Future Enhancements</h3>
+<ul>
+<li>Docker for hosting database, nginx and flask web app</li>
+<li>Google API to read your location</li>
+<li>Actively scrape hospital data as it is released per month on hqontatio.ca</li>
+<li>Generate best route to hospital using combinatorial optimization</li>
+</ul>
+<p>If you’d like to play around with the tool, a beta version is running here: https://patientlywaiting.herokuapp.com/</p>
+<p>The complete project source code (which is still in the process of being updated) can be found on <a href="https://github.com/anitatea/patiently_waiting">GitHub</a>.</p>
+<div class="highlight"><pre><span></span>
+</pre></div></p>
+        </div>
+    </div>
+
+<div class="fh5co-narrow-content">
+<div class="animate-box" data-animate-effect="fadeInLeft">
+    <h2><!-- <i class="icon-speech-bubble"></i>  -->Comments</h2>
+</div>
+<div class="animate-box" data-animate-effect="fadeInLeft">
+    <div id="disqus_thread"></div>
+</div>
+
+<script>
+var disqus_config = function () { 
+  this.language = "en";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://gitcd-dev.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript><a href="https://disqus.com/?ref_noscript">Please enable JavaScript to view the comments powered by Disqus.</a></noscript>
+<div class="fh5co-footer">
+    <p><small>&copy; Anita Tran 2020 - Built with <a href="http://getpelican.com" target="_blank">Pelican</a>.</span> <span><a href="https://github.com/claudio-walser/pelican-fh5co-marble" target="_blank">FreeHTML5.co Marble Design</a></span>
+    <br /></small></p>
+</div>        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="http://localhost:8081/theme/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="http://localhost:8081/theme/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="http://localhost:8081/theme/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="http://localhost:8081/theme/js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="http://localhost:8081/theme/js/jquery.flexslider-min.js"></script>
+
+
+    <!-- MAIN JS -->
+    <script src="http://localhost:8081/theme/js/main.js"></script>
+    </body>
+</html>

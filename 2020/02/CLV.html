@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>What's a customer worth? Modeling customer lifetime value</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Anita Tran" />
+    <meta name="description" content="Recently, I've been taking advantage of an app called Sweatabl to discover free workout classes near me. While I love to switch up my workout routine and explore the fitness community freely, I can't help but wonder that this definitely makes for a much trickier Customer Lifetime Value (CLV) calculation …" />
+    <meta name="keywords" content="">
+<!-- Facebook and Twitter integration -->
+<meta property="og:site_name" content="FH5CO Marble Example"/>
+<meta property="og:title" content="What's a customer worth? Modeling customer lifetime value"/>
+<meta property="og:description" content="Recently, I've been taking advantage of an app called Sweatabl to discover free workout classes near me. While I love to switch up my workout routine and explore the fitness community freely, I can't help but wonder that this definitely makes for a much trickier Customer Lifetime Value (CLV) calculation …"/>
+<meta property="og:url" content="http://localhost:8081/2020/02/CLV.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-02-17 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://localhost:8081/author/anita-tran.html">
+<meta property="article:section" content="blog"/>
+    <meta property="og:image" content="http://localhost:8081//images/blog/blog_6.jpeg">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:8081/theme/css/icomoon.css"> -->
+
+    <script src="https://kit.fontawesome.com/d51a65b9ad.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/bootstrap.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/flexslider.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/style.css">
+    <!-- Custom style  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/custom.css">
+    <!-- pygments code highlight -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/pygments.css">
+    <!-- tipue search -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/tipuesearch/css/tipuesearch.css">
+
+    <!-- Modernizr JS -->
+    <script src="http://localhost:8081/theme/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="/theme/js/respond.min.js"></script>
+    <![endif]-->
+        <link href="http://localhost:8081/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FH5CO Marble Example Atom">
+
+
+    <style>
+    img {
+      width: 100%;
+      height: auto;
+    }
+    </style>
+
+
+    </head>
+    <body>
+    <div id="fh5co-page">
+        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+        <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+
+            <nav class="fh5co-main-menu" role="navigation">
+              <ul class="fh5co-active"><h2 class="fh5co-heading-colored" href="http://localhost:8081/">Anita Tran</h2></ul>
+                <!--     <ul class="language-navigation">
+        <li>
+                <a class="lang-active" href="http://localhost:8081/">en</a>
+                <a href="http://localhost:8081/de/">de</a>
+        </li>
+    </ul>
+ -->
+            </nav>
+            <div class="clearfix"></div>
+            <h1 id="fh5co-logo">
+                <a href="http://localhost:8081/index.html">
+                    <img src="/images/logo.png"/>
+                </a>
+            </h1>
+            <nav class="fh5co-main-menu" role="navigation">
+<ul>
+    <!-- home link -->
+    <li><a href="http://localhost:8081/">Home</a></li>
+
+    <!-- page links -->
+            <li><a href="http://localhost:8081/pages/about/">About</a></li>
+
+
+    <!-- categories -->
+        <li><a href="http://localhost:8081/categories.html">Categories</a></li>
+
+    <!-- tags -->
+        <li><a href="http://localhost:8081/tags.html">Tags</a></li>
+
+    <!-- additional menu items from config -->
+        <!-- <li class="nav-title">Misc</li> -->
+            <li><a href="http://localhost:8081/archives.html">Archive</a></li>
+            <li><a href="http://localhost:8081/contact.html">Contact</a></li>
+
+</ul>
+<ul><li><form id="searchform" action="http://localhost:8081/search.html">
+    <input id="tipue_search_input" data-siteurl="http://localhost:8081" type="text" size="60" class="form-control search-field" name="q">
+
+    <button type="submit" class="btn btn-primary search-submit"><i class="icon-blog"></i></button>
+</form></li></ul>
+            </nav>
+
+<ul id="social">
+            <li><a href="https://www.github.com/anitatea" alt="Github"><i class="fab fa-github fa-2x"></i></a></li>
+
+            <li><a href="https://www.linkedin.com/in/anitat/" alt="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
+
+            <li><a href="https://www.instagram.com/i.need.a.tea/" alt="instagram"><i class="fab fa-instagram fa-2x"></i></i></a></li>
+
+</ul>
+        </aside>
+
+        <div id="fh5co-main">
+
+    <div class="fh5co-narrow-content article-content">
+        <h1 class="fh5co-heading-colored">What's a customer worth? Modeling customer lifetime value</h1>
+
+        <div>by
+                <a href="author/anita-tran.html">Anita Tran</a> - Mon, 17 Feb 2020
+        </div>
+
+
+        <div class="animate-box" data-animate-effect="fadeInLeft">
+            <p class="animate-box" data-animate-effect="fadeInLeft"><!-- https://images.pexels.com/photos/919436/pexels-photo-919436.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
+
+<p>Recently, I've been taking advantage of an app called <a href="https://apps.apple.com/ca/app/sweatabl/id1354451699">Sweatabl</a> to discover free workout classes near me. While I love to switch up my workout routine and explore the fitness community freely, I can't help but wonder that this definitely makes for a much trickier Customer Lifetime Value (CLV) calculation.</p>
+<p>Whether in E-Commerce, retail or workout classes, there is an investment in customers (acquisition costs, offline ads, promotions, discounts, etc.) to generate revenue and be profitable. These actions make some customers incredibly valuable in terms of lifetime value for the business. Other customers do go away, however they do so silently; they don't have to tell us they're leaving.</p>
+<p>I wanted to model customer data and see how it can be used to predict a customer's lifetime value. The data we'll use is an online retail dataset downloaded from <a href="http://archive.ics.uci.edu/ml/datasets/online+retail">UCI Machine Learning Repository</a>.</p>
+<h3>Import the data</h3>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;Online Retail.xlsx&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>InvoiceNo</th>
+      <th>StockCode</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>InvoiceDate</th>
+      <th>UnitPrice</th>
+      <th>CustomerID</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>536365</td>
+      <td>85123A</td>
+      <td>WHITE HANGING HEART T-LIGHT HOLDER</td>
+      <td>6</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>2.55</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>536365</td>
+      <td>71053</td>
+      <td>WHITE METAL LANTERN</td>
+      <td>6</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>3.39</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>536365</td>
+      <td>84406B</td>
+      <td>CREAM CUPID HEARTS COAT HANGER</td>
+      <td>8</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>2.75</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>536365</td>
+      <td>84029G</td>
+      <td>KNITTED UNION FLAG HOT WATER BOTTLE</td>
+      <td>6</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>3.39</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>536365</td>
+      <td>84029E</td>
+      <td>RED WOOLLY HOTTIE WHITE HEART.</td>
+      <td>6</td>
+      <td>2010-12-01 08:26:00</td>
+      <td>3.39</td>
+      <td>17850.0</td>
+      <td>United Kingdom</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Clean the data and make a new dataframe. For our analysis, all we need is CustomerID, InvoiceDate (without the time) and we'll make a new columns called 'Sales'.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;InvoiceDate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;InvoiceDate&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">date</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CustomerID&#39;</span><span class="p">])]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sales&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;UnitPrice&#39;</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;CustomerID&#39;</span><span class="p">,</span> <span class="s1">&#39;InvoiceDate&#39;</span><span class="p">,</span> <span class="s1">&#39;Sales&#39;</span><span class="p">]]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerID</th>
+      <th>InvoiceDate</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>17850.0</td>
+      <td>2010-12-01</td>
+      <td>15.30</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>17850.0</td>
+      <td>2010-12-01</td>
+      <td>20.34</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>17850.0</td>
+      <td>2010-12-01</td>
+      <td>22.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>17850.0</td>
+      <td>2010-12-01</td>
+      <td>20.34</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17850.0</td>
+      <td>2010-12-01</td>
+      <td>20.34</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Let's see how many unique customers.</p>
+<div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CustomerID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">4339</span>
+</pre></div>
+
+
+<h3>Shape of your data</h3>
+<p>For CLV models, the following nomenclature is used:</p>
+<p><code>Frequency</code>: number of repeat purchases the customer has made. This means that it’s one less than the total number of purchases.</p>
+<p><code>T</code>: age of the customer in whatever time units chosen (daily, in our dataset). This is equal to the duration between a customer’s first purchase and the end of the period under study.</p>
+<p><code>Recency</code>: age of the customer when they made their most recent purchases. This is equal to the duration between a customer’s first purchase and their latest purchase. (Thus if they have made only 1 purchase, the recency is 0.)</p>
+<p>We'll be using the <a href="https://github.com/CamDavidsonPilon/lifetimes">Lifetimes package</a>, developed by Cameron Davidson-Pilon, data scientist at Shopify. If your data is not in this format, there are useful functions in the documentation to transform your data.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifetimes.plotting</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">lifetimes.utils</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">summary_data_from_transaction_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;CustomerID&#39;</span><span class="p">,</span> <span class="s1">&#39;InvoiceDate&#39;</span><span class="p">,</span> <span class="n">monetary_value_col</span><span class="o">=</span><span class="s1">&#39;Sales&#39;</span><span class="p">,</span> <span class="n">observation_period_end</span><span class="o">=</span><span class="s1">&#39;2011-12-9&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>frequency</th>
+      <th>recency</th>
+      <th>T</th>
+      <th>monetary_value</th>
+    </tr>
+    <tr>
+      <th>CustomerID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12346.0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>325.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>12347.0</th>
+      <td>6.0</td>
+      <td>365.0</td>
+      <td>367.0</td>
+      <td>599.701667</td>
+    </tr>
+    <tr>
+      <th>12348.0</th>
+      <td>3.0</td>
+      <td>283.0</td>
+      <td>358.0</td>
+      <td>301.480000</td>
+    </tr>
+    <tr>
+      <th>12349.0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>18.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>12350.0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>310.0</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><code>CustomerID 12346</code> made one purchase only (no repeat), so his frequency and recency are 0 and their age is 325 days (e.g. the duration between his first purchase and the end of the period in the analysis).</p>
+<h3>Frequency/Recency analysis using the BG/NBD model</h3>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifetimes</span> <span class="kn">import</span> <span class="n">BetaGeoFitter</span>
+
+<span class="n">bgf</span> <span class="o">=</span> <span class="n">BetaGeoFitter</span><span class="p">(</span><span class="n">penalizer_coef</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">bgf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;recency&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bgf</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">&lt;lifetimes.BetaGeoFitter: fitted with 4339 subjects, a: 0.00, alpha: 68.89, b: 6.75, r: 0.83&gt;</span>
+</pre></div>
+
+
+<p>Let's say a customer made a purchase every day for three weeks straight and then hasn't had any activity for months. Chances are the probability of this customer being "alive" is very slim.</p>
+<p>On the other hand, if a customer consistently makes a purchase every couple of months, they're more likely to be "alive".</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifetimes.plotting</span> <span class="kn">import</span> <span class="n">plot_frequency_recency_matrix</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plot_frequency_recency_matrix</span><span class="p">(</span><span class="n">bgf</span><span class="p">);</span>
+</pre></div>
+
+
+<p><img src = 'https://github.com/anitatea/blog/blob/master/content/images/output_19_1.png?raw=true'></p>
+<p>Customers who have purchased frequently and purchased recently will likely be the best customers in the future. (bottom-right corner).</p>
+<p>Customers who have purchased a lot but not recently (top-right corner), have probably gone.</p>
+<p>Let's go back to our customers and rank their expected number of purchases.</p>
+<div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;predicted_purchases&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bgf</span><span class="o">.</span><span class="n">conditional_expected_number_of_purchases_up_to_time</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;recency&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;predicted_purchases&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>frequency</th>
+      <th>recency</th>
+      <th>T</th>
+      <th>monetary_value</th>
+      <th>predicted_purchases</th>
+    </tr>
+    <tr>
+      <th>CustomerID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14606.0</th>
+      <td>88.0</td>
+      <td>372.0</td>
+      <td>373.0</td>
+      <td>135.890114</td>
+      <td>0.201005</td>
+    </tr>
+    <tr>
+      <th>15311.0</th>
+      <td>89.0</td>
+      <td>373.0</td>
+      <td>373.0</td>
+      <td>677.729438</td>
+      <td>0.203269</td>
+    </tr>
+    <tr>
+      <th>17841.0</th>
+      <td>111.0</td>
+      <td>372.0</td>
+      <td>373.0</td>
+      <td>364.452162</td>
+      <td>0.253053</td>
+    </tr>
+    <tr>
+      <th>12748.0</th>
+      <td>113.0</td>
+      <td>373.0</td>
+      <td>373.0</td>
+      <td>298.360885</td>
+      <td>0.257581</td>
+    </tr>
+    <tr>
+      <th>14911.0</th>
+      <td>131.0</td>
+      <td>372.0</td>
+      <td>373.0</td>
+      <td>1093.661679</td>
+      <td>0.298312</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Assessing model fit</h3>
+<p>Let's see how correct our model actually is. We can compare our data versus artificial data simulated with our fitted model's parameters.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifetimes.plotting</span> <span class="kn">import</span> <span class="n">plot_period_transactions</span>
+
+<span class="n">plot_period_transactions</span><span class="p">(</span><span class="n">bgf</span><span class="p">);</span>
+<span class="c1"># train test split is being done underneath</span>
+</pre></div>
+
+
+<p><img src = 'https://github.com/anitatea/blog/blob/master/content/images/output_25_1.png?raw=true'></p>
+<p>We now partition the dataset into a calibration period dataset and a holdout dataset - just like cross-validation in machine learning models.
+This is important as we want to test how our model performs on data not yet seen.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifetimes.utils</span> <span class="kn">import</span> <span class="n">calibration_and_holdout_data</span>
+
+<span class="n">summary_cal_holdout</span> <span class="o">=</span> <span class="n">calibration_and_holdout_data</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;CustomerID&#39;</span><span class="p">,</span> <span class="s1">&#39;InvoiceDate&#39;</span><span class="p">,</span>
+                                        <span class="n">calibration_period_end</span><span class="o">=</span><span class="s1">&#39;2011-06-08&#39;</span><span class="p">,</span>
+                                        <span class="n">observation_period_end</span><span class="o">=</span><span class="s1">&#39;2011-12-9&#39;</span> <span class="p">)</span>   
+<span class="nb">print</span><span class="p">(</span><span class="n">summary_cal_holdout</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>            <span class="n">frequency_cal</span>  <span class="n">recency_cal</span>  <span class="n">T_cal</span>  <span class="n">frequency_holdout</span>  <span class="err">\</span>
+<span class="n">CustomerID</span>                                                         
+<span class="mi">12346</span><span class="p">.</span><span class="mi">0</span>               <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>          <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">141</span><span class="p">.</span><span class="mi">0</span>                <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   
+<span class="mi">12347</span><span class="p">.</span><span class="mi">0</span>               <span class="mi">2</span><span class="p">.</span><span class="mi">0</span>        <span class="mi">121</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">183</span><span class="p">.</span><span class="mi">0</span>                <span class="mi">4</span><span class="p">.</span><span class="mi">0</span>   
+<span class="mi">12348</span><span class="p">.</span><span class="mi">0</span>               <span class="mi">2</span><span class="p">.</span><span class="mi">0</span>        <span class="mi">110</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">174</span><span class="p">.</span><span class="mi">0</span>                <span class="mi">1</span><span class="p">.</span><span class="mi">0</span>   
+<span class="mi">12350</span><span class="p">.</span><span class="mi">0</span>               <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>          <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">126</span><span class="p">.</span><span class="mi">0</span>                <span class="mi">0</span><span class="p">.</span><span class="mi">0</span>   
+<span class="mi">12352</span><span class="p">.</span><span class="mi">0</span>               <span class="mi">3</span><span class="p">.</span><span class="mi">0</span>         <span class="mi">34</span><span class="p">.</span><span class="mi">0</span>  <span class="mi">112</span><span class="p">.</span><span class="mi">0</span>                <span class="mi">3</span><span class="p">.</span><span class="mi">0</span>
+
+            <span class="n">duration_holdout</span>  
+<span class="n">CustomerID</span>                    
+<span class="mi">12346</span><span class="p">.</span><span class="mi">0</span>                  <span class="mi">184</span>  
+<span class="mi">12347</span><span class="p">.</span><span class="mi">0</span>                  <span class="mi">184</span>  
+<span class="mi">12348</span><span class="p">.</span><span class="mi">0</span>                  <span class="mi">184</span>  
+<span class="mi">12350</span><span class="p">.</span><span class="mi">0</span>                  <span class="mi">184</span>  
+<span class="mi">12352</span><span class="p">.</span><span class="mi">0</span>                  <span class="mi">184</span>
+</pre></div>
+
+
+<p>Perform fitting on the <code>_cal</code> columns, and test on the <code>_holdout</code> columns.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifetimes.plotting</span> <span class="kn">import</span> <span class="n">plot_calibration_purchases_vs_holdout_purchases</span>
+
+<span class="n">bgf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">summary_cal_holdout</span><span class="p">[</span><span class="s1">&#39;frequency_cal&#39;</span><span class="p">],</span> <span class="n">summary_cal_holdout</span><span class="p">[</span><span class="s1">&#39;recency_cal&#39;</span><span class="p">],</span> <span class="n">summary_cal_holdout</span><span class="p">[</span><span class="s1">&#39;T_cal&#39;</span><span class="p">])</span>
+<span class="n">plot_calibration_purchases_vs_holdout_purchases</span><span class="p">(</span><span class="n">bgf</span><span class="p">,</span> <span class="n">summary_cal_holdout</span><span class="p">);</span>
+</pre></div>
+
+
+<p><img src = 'https://github.com/anitatea/blog/blob/master/content/images/output_29_1.png?raw=true'></p>
+<h3>Predicting customer transactions</h3>
+<p>Let's say we want to predict the purchases of <code>CustomerID = 12347</code> in the next 10 days.</p>
+<div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># predict purchases in 10 periods</span>
+<span class="n">individual</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">12347</span><span class="p">]</span>
+<span class="c1"># below function is an alias to `bfg.conditional_expected_number_of_purchases_up_to_time`</span>
+<span class="n">bgf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">individual</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">],</span> <span class="n">individual</span><span class="p">[</span><span class="s1">&#39;recency&#39;</span><span class="p">],</span> <span class="n">individual</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">0.1572774363164109</span>
+</pre></div>
+
+
+<p>Our model is saying that this customer's future transaction is 0.157 in 10 days. Note that this is not a percentage, but what an individual's future purchases might look like.</p>
+<h3>Estimating customer lifetime value using Gamma-Gamma model of monetary value</h3>
+<p>In our analysis, we haven't yet taken into account the economic value (Sales) of each transaction and only focused on the occurrences.</p>
+<p>We want to predict the likely spend per transaction in the future for a customer.</p>
+<p>To estimate the economic value, we use the Gamma-Gamma submodel.</p>
+<p>For this estimation, we filter for customers who had at least one repeat purchase.</p>
+<div class="highlight"><pre><span></span><span class="n">returning_customers</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">returning_customers</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>frequency</th>
+      <th>recency</th>
+      <th>T</th>
+      <th>monetary_value</th>
+      <th>predicted_purchases</th>
+    </tr>
+    <tr>
+      <th>CustomerID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12347.0</th>
+      <td>6.0</td>
+      <td>365.0</td>
+      <td>367.0</td>
+      <td>599.701667</td>
+      <td>0.015656</td>
+    </tr>
+    <tr>
+      <th>12348.0</th>
+      <td>3.0</td>
+      <td>283.0</td>
+      <td>358.0</td>
+      <td>301.480000</td>
+      <td>0.008956</td>
+    </tr>
+    <tr>
+      <th>12352.0</th>
+      <td>6.0</td>
+      <td>260.0</td>
+      <td>296.0</td>
+      <td>368.256667</td>
+      <td>0.018697</td>
+    </tr>
+    <tr>
+      <th>12356.0</th>
+      <td>2.0</td>
+      <td>303.0</td>
+      <td>325.0</td>
+      <td>269.905000</td>
+      <td>0.007172</td>
+    </tr>
+    <tr>
+      <th>12358.0</th>
+      <td>1.0</td>
+      <td>149.0</td>
+      <td>150.0</td>
+      <td>683.200000</td>
+      <td>0.008340</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">returning_customers</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">2790</span>
+</pre></div>
+
+
+<p>Apply the Gamma-Gamma model.</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">lifetimes</span> <span class="kn">import</span> <span class="n">GammaGammaFitter</span>
+<span class="n">ggf</span> <span class="o">=</span> <span class="n">GammaGammaFitter</span><span class="p">(</span><span class="n">penalizer_coef</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">ggf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">returning_customers</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">],</span>
+        <span class="n">returning_customers</span><span class="p">[</span><span class="s1">&#39;monetary_value&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ggf</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">&lt;lifetimes.GammaGammaFitter: fitted with 2790 subjects, p: 2.10, q: 3.45, v: 485.57&gt;</span>
+</pre></div>
+
+
+<p>Estimate of average transaction value for each customer.</p>
+<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ggf</span><span class="o">.</span><span class="n">conditional_expected_average_profit</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">],</span>
+        <span class="n">data</span><span class="p">[</span><span class="s1">&#39;monetary_value&#39;</span><span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">CustomerID</span>
+<span class="err">12346.0    416.917667</span>
+<span class="err">12347.0    569.988807</span>
+<span class="err">12348.0    333.762672</span>
+<span class="err">12349.0    416.917667</span>
+<span class="err">12350.0    416.917667</span>
+<span class="err">12352.0    376.166864</span>
+<span class="err">12353.0    416.917667</span>
+<span class="err">12354.0    416.917667</span>
+<span class="err">12355.0    416.917667</span>
+<span class="err">12356.0    324.008941</span>
+<span class="c">dtype: float64</span>
+</pre></div>
+
+
+<p>Finally, computing the total CLV! We'll be using the <a href="https://en.wikipedia.org/wiki/Discounted_cash_flow">Discounted Cash Flow method</a> adjusting for cost of capital.</p>
+<div class="highlight"><pre><span></span><span class="c1"># refit the BG model to the data (with money value) dataset</span>
+<span class="n">bgf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;recency&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">])</span>
+
+<span class="n">CLV</span> <span class="o">=</span> <span class="n">ggf</span><span class="o">.</span><span class="n">customer_lifetime_value</span><span class="p">(</span>
+    <span class="n">bgf</span><span class="p">,</span> <span class="c1">#the model to use to predict the number of future transactions</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;frequency&#39;</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;recency&#39;</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;monetary_value&#39;</span><span class="p">],</span>
+    <span class="n">time</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="c1"># months</span>
+    <span class="n">discount_rate</span><span class="o">=</span><span class="mf">0.01</span> <span class="c1"># monthly discount rate ~ 12.7% annually</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">CLV</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="err">CustomerID</span>
+<span class="err">14646.0    222128.930290</span>
+<span class="err">18102.0    178895.333435</span>
+<span class="err">16446.0    175531.468535</span>
+<span class="err">17450.0    147476.621010</span>
+<span class="err">14096.0    127589.202889</span>
+<span class="err">14911.0    109442.132668</span>
+<span class="err">12415.0     96290.227222</span>
+<span class="err">14156.0     89410.334970</span>
+<span class="err">17511.0     67660.407580</span>
+<span class="err">16029.0     58729.618772</span>
+<span class="c">Name: clv, dtype: float64</span>
+</pre></div>
+
+
+<p><code>CustomerID 14646</code> is estimated to have a CLV of over $200K. Using this analysis, I can see the value it can bring such as identifying traits and features of valuable customers.</p></p>
+        </div>
+    </div>
+
+<div class="fh5co-narrow-content">
+<div class="animate-box" data-animate-effect="fadeInLeft">
+    <h2><!-- <i class="icon-speech-bubble"></i>  -->Comments</h2>
+</div>
+<div class="animate-box" data-animate-effect="fadeInLeft">
+    <div id="disqus_thread"></div>
+</div>
+
+<script>
+var disqus_config = function () { 
+  this.language = "en";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://gitcd-dev.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript><a href="https://disqus.com/?ref_noscript">Please enable JavaScript to view the comments powered by Disqus.</a></noscript>
+<div class="fh5co-footer">
+    <p><small>&copy; Anita Tran 2020 - Built with <a href="http://getpelican.com" target="_blank">Pelican</a>.</span> <span><a href="https://github.com/claudio-walser/pelican-fh5co-marble" target="_blank">FreeHTML5.co Marble Design</a></span>
+    <br /></small></p>
+</div>        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="http://localhost:8081/theme/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="http://localhost:8081/theme/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="http://localhost:8081/theme/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="http://localhost:8081/theme/js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="http://localhost:8081/theme/js/jquery.flexslider-min.js"></script>
+
+
+    <!-- MAIN JS -->
+    <script src="http://localhost:8081/theme/js/main.js"></script>
+    </body>
+</html>

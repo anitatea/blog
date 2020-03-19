@@ -1,6 +1,6 @@
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *	Edit this section
 *
 * ======================================================= */
@@ -95,8 +95,8 @@ figure figcaption {
   -o-transition: 0.5s;
   transition: 0.5s;
 }
-#fh5co-aside::-webkit-scrollbar { 
-    display: none; 
+#fh5co-aside::-webkit-scrollbar {
+    display: none;
 }
 
 @media screen and (max-width: 1200px) {
@@ -129,13 +129,13 @@ figure figcaption {
 }
 
 #fh5co-aside #fh5co-logo a {
-  width: auto !important;
+  width: 150px !important;
 }
 
 #fh5co-aside #fh5co-logo img {
   border-radius: 50%;
-
 }
+
 @media screen and (max-width: 768px) {
   #fh5co-aside #fh5co-logo {
     margin-bottom: 1em;
@@ -243,7 +243,7 @@ figure figcaption {
 
 
 
-#fh5co-aside #social [class^="icon-"], [class*=" icon-"] {
+#fh5co-aside #social [class^="fab fa-"], [class*=" fab fa-"] {
   font-size: 2em;
 }
 #fh5co-aside #social {
@@ -321,6 +321,7 @@ figure figcaption {
   position: relative;
   overflow: hidden;
 }
+/* makes the hero opaque */
 #fh5co-hero .flexslider .slides .overlay {
   position: absolute;
   top: 0;
@@ -328,7 +329,7 @@ figure figcaption {
   left: 0;
   right: 0;
   content: '';
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.5);
 }
 #fh5co-hero .flexslider .slides li {
   background-repeat: no-repeat;

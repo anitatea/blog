@@ -18,7 +18,10 @@
     <!-- Animate.css -->
     <link rel="stylesheet" href="http://localhost:8081/theme/css/animate.css">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="http://localhost:8081/theme/css/icomoon.css">
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:8081/theme/css/icomoon.css"> -->
+
+    <script src="https://kit.fontawesome.com/d51a65b9ad.js" crossorigin="anonymous"></script>
+
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="http://localhost:8081/theme/css/bootstrap.css">
     <!-- Flexslider  -->
@@ -41,6 +44,13 @@
         <link href="http://localhost:8081/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FH5CO Marble Example Atom">
 
 
+    <style>
+    img {
+      width: 100%;
+      height: auto;
+    }
+    </style>
+
 
     </head>
     <body>
@@ -49,17 +59,19 @@
         <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
             <nav class="fh5co-main-menu" role="navigation">
-    <ul class="language-navigation">
+              <ul class="fh5co-active"><h2 class="fh5co-heading-colored" href="http://localhost:8081/">Anita Tran</h2></ul>
+                <!--     <ul class="language-navigation">
         <li>
                 <a class="lang-active" href="http://localhost:8081/">en</a>
                 <a href="http://localhost:8081/de/">de</a>
         </li>
     </ul>
+ -->
             </nav>
             <div class="clearfix"></div>
-            <h1  id="fh5co-logo">
+            <h1 id="fh5co-logo">
                 <a href="http://localhost:8081/index.html">
-                    <img src="/images/logo.svg" />
+                    <img src="/images/logo.png"/>
                 </a>
             </h1>
             <nav class="fh5co-main-menu" role="navigation">
@@ -68,8 +80,8 @@
     <li><a href="http://localhost:8081/">Home</a></li>
 
     <!-- page links -->
-            <li><a href="http://localhost:8081/pages/about.html">About</a></li>
-            <li><a href="http://localhost:8081/pages/installation.html">Installation</a></li>
+            <li><a href="http://localhost:8081/pages/about/">About</a></li>
+
 
     <!-- categories -->
         <li><a href="http://localhost:8081/categories.html">Categories</a></li>
@@ -82,21 +94,20 @@
             <li class="fh5co-active"><a href="http://localhost:8081/archives.html">Archive</a></li>
             <li><a href="http://localhost:8081/contact.html">Contact</a></li>
 
-</ul><ul><li><form id="searchform" action="http://localhost:8081/search.html">
+</ul>
+<ul><li><form id="searchform" action="http://localhost:8081/search.html">
     <input id="tipue_search_input" data-siteurl="http://localhost:8081" type="text" size="60" class="form-control search-field" name="q">
 
-    <button type="submit" class="btn btn-primary search-submit"><i class="icon-search4"></i></button>
+    <button type="submit" class="btn btn-primary search-submit"><i class="icon-blog"></i></button>
 </form></li></ul>
             </nav>
 
 <ul id="social">
-            <li><a href="https://www.github.com/claudio-walser" alt="Github"><i class="icon-github"></i></a></li>
+            <li><a href="https://www.github.com/anitatea" alt="Github"><i class="fab fa-github fa-2x"></i></a></li>
 
-            <li><a href="https://www.facebook.com" alt="Facebook"><i class="icon-facebook2"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/anitat/" alt="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
 
-            <li><a href="https://www.twitter.com" alt="Twitter"><i class="icon-twitter2"></i></a></li>
-
-            <li><a href="https://plus.google.com" alt="Google+"><i class="icon-google-plus2"></i></a></li>
+            <li><a href="https://www.instagram.com/i.need.a.tea/" alt="instagram"><i class="fab fa-instagram fa-2x"></i></i></a></li>
 
 </ul>
         </aside>
@@ -106,15 +117,71 @@
         <h1 class="fh5co-heading-colored">Archive</h1>
         <div class="archive">
                 <div class="animate-box" data-animate-effect="fadeInLeft">
-                    <a href="http://localhost:8081/patientlywaiting.html"><h2>Using emergency room hospital data to predict wait times</h2></a>
+                    <a href="http://localhost:8081/2020/03/patientlywaiting.html"><h2>Using emergency room hospital data to predict wait times</h2></a>
                     <div>by
                             <a href="author/anita-tran.html">Anita Tran</a> - Thu, 12 Mar 2020
                     </div>
-                    <p>Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional?</p>
+                    <!-- https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
+
+<p>Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional?</p>
 <p>It sucks. And there should definitely be a better system, right? Having volunteered …</p>
                 </div>
                 <div class="animate-box" data-animate-effect="fadeInLeft">
-                    <a href="http://localhost:8081/snowshoeing.html"><h2>Snowshoeing</h2></a>
+                    <a href="http://localhost:8081/2020/02/CLV.html"><h2>What's a customer worth? Modeling customer lifetime value</h2></a>
+                    <div>by
+                            <a href="author/anita-tran.html">Anita Tran</a> - Mon, 17 Feb 2020
+                    </div>
+                    <!-- https://images.pexels.com/photos/919436/pexels-photo-919436.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
+
+<p>Recently, I've been taking advantage of an app called <a href="https://apps.apple.com/ca/app/sweatabl/id1354451699">Sweatabl</a> to discover free workout classes near me. While I love to switch up my workout routine and explore the fitness community freely, I can't help but wonder that this definitely makes for a much trickier Customer Lifetime Value (CLV) calculation …</p>
+                </div>
+                <div class="animate-box" data-animate-effect="fadeInLeft">
+                    <a href="http://localhost:8081/2020/02/mimesis.html"><h2>Are you done with fake (news, friends, etc.)?</h2></a>
+                    <div>by
+                            <a href="author/anita-tran.html">Anita Tran</a> - Mon, 03 Feb 2020
+                    </div>
+                    <!-- https://images.pexels.com/photos/2315712/pexels-photo-2315712.jpeg?auto=compress&cs=tinysrgb&h=650&w=940 -->
+
+<p>The Fitbit I got during the holidays got me thinking. How do these health app developers get their data to test their data? Do they really survey thousands of people about their personal data or manually input health data one by one?
+Isn't there a more efficient way to get …</p>
+                </div>
+                <div class="animate-box" data-animate-effect="fadeInLeft">
+                    <a href="http://localhost:8081/2020/01/dash-plotly.html"><h2>Epic visualizations to plot epidemics</h2></a>
+                    <div>by
+                            <a href="author/anita-tran.html">Anita Tran</a> - Mon, 27 Jan 2020
+                    </div>
+                    <!-- https://images.pexels.com/photos/1164536/pexels-photo-1164536.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260 -->
+
+<p>Data visualization is one of my favourite creative outlets - to draw out deeper insights from meaningful data. Like this.</p>
+<p><img src= 'http://lh6.ggpht.com/_gKQKwLZ8XUs/S9imwa3sgvI/AAAAAAAACiE/vM0kklCnsAk/s800/Graphjam-Essay.jpg'></p>
+<p>(Image source: <a href="https://www.boredpanda.com/35-extremely-funny-graphs-and-charts/?utm_source=duckduckgo&amp;utm_medium=referral&amp;utm_campaign=organic">Graphjam.com</a>)</p>
+<p>Visualization packages in Python is far from scarce and there are great options for static graphs.</p>
+<p>However, as data gets more complex and understanding becomes more distant …</p>
+                </div>
+                <div class="animate-box" data-animate-effect="fadeInLeft">
+                    <a href="http://localhost:8081/2019/12/turtle.html"><h2>Can you doodle with Python?</h2></a>
+                    <div>by
+                            <a href="author/anita-tran.html">Anita Tran</a> - Mon, 23 Dec 2019
+                    </div>
+                    <!-- https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
+
+<p>Throughout all my years in elementary school to engineering at UofT, my notes have always been decorated with swirls, spirals and circular doodles. Well now all my notes are now digital... but my noodle still wants to doodle.</p>
+<p><img src= 'https://i.kym-cdn.com/photos/images/original/001/152/468/e60.png' width='200'></p>
+<p>Let's see how we can do this with Python. Math can help …</p>
+                </div>
+                <div class="animate-box" data-animate-effect="fadeInLeft">
+                    <a href="http://localhost:8081/2019/12/feature-engineering.html"><h2>Featuring... Feature Engineering!</h2></a>
+                    <div>by
+                            <a href="author/anita-tran.html">Anita Tran</a> - Mon, 09 Dec 2019
+                    </div>
+                    <!-- https://images.pexels.com/photos/1036936/pexels-photo-1036936.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
+
+<p>As someone with an engineering background, I was naturally drawn to the concept of Feature Engineering and excited to take my first dive into machine learning through finding organization and insights from messy data – real world data.</p>
+<p><img src='https://pics.me.me/real-world-datasets-boton-nouse-oricess-0-gi-i-think-i-49704783.png' width="200"></p>
+<p>Feature engineering is the way of extracting features (variables) from data and transforming …</p>
+                </div>
+                <div class="animate-box" data-animate-effect="fadeInLeft">
+                    <a href="http://localhost:8081/2018/02/snowshoeing.html"><h2>Snowshoeing</h2></a>
                     <div>by
                             <a href="author/anita-tran.html">Anita Tran</a> - Mon, 12 Feb 2018
                     </div>
@@ -122,7 +189,7 @@
 
                 </div>
                 <div class="animate-box" data-animate-effect="fadeInLeft">
-                    <a href="http://localhost:8081/hiking.html"><h2>Hiking</h2></a>
+                    <a href="http://localhost:8081/2018/02/hiking.html"><h2>Hiking</h2></a>
                     <div>by
                             <a href="author/anita-tran.html">Anita Tran</a> - Mon, 12 Feb 2018
                     </div>
@@ -133,11 +200,9 @@
     </div>
 
 <div class="fh5co-footer">
-    <p><small>&copy; 2016 Blend Free HTML5. All Rights Reserved.</span> <span>Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a></span>
-    <br /><span>Pelican Theme by: <a href="https://github.com/claudio-walser/pelican-fh5co-marble" target="_blank">Claudio Walser</a></span></small></p>
-
-</div>                
-        </div>
+    <p><small>&copy; Anita Tran 2020 - Built with <a href="http://getpelican.com" target="_blank">Pelican</a>.</span> <span><a href="https://github.com/claudio-walser/pelican-fh5co-marble" target="_blank">FreeHTML5.co Marble Design</a></span>
+    <br /></small></p>
+</div>        </div>
     </div>
 
     <!-- jQuery -->
