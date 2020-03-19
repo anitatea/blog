@@ -47,12 +47,12 @@ I18N_SUBSITES = {
 }
 
 # logo path, needs to be stored in PATH Setting
-LOGO = '/images/logo.png'
+LOGO = './images/logo.png'
 
 # special content
 HERO = [
   {
-    'image': '/images/hero/patientlywaiting.png',
+    'image': './images/hero/patientlywaiting.png',
     # for multilanguage support, create a simple dict
     'title': {
       'en':'Patiently Waiting',
@@ -70,7 +70,7 @@ HERO = [
       }
     ]
   }, {
-    'image': '/images/hero/pokemon_go.png',
+    'image': './images/hero/pokemon_go.png',
     # keep it a string if you dont need multiple languages
     'title': 'Pokemon Go - Prediction App',
     # keep it a string if you dont need multiple languages
@@ -84,12 +84,12 @@ HERO = [
       }
     ]
   }, {
-    'image': '/images/hero/background-3.jpg',
+    'image': './images/hero/background-3.jpg',
     'title': 'A thing',
     'text': 'Because of space issues in the man-nav, i didnt implemented Blogroll links yet.',
     'links': []
   }, {
-    'image': '/images/hero/background-4.jpg',
+    'image': './images/hero/background-4.jpg',
     'title': 'Ads missing as well',
     'text': 'And since i hate any ads, this is not implemented as well',
     'links': []
@@ -105,7 +105,7 @@ SOCIAL = (
 )
 
 ABOUT = {
-  'image': '/images/about/about.jpg',
+  'image': './images/about/about.jpg',
   'mail': 'anita.tran38@gmail.com',
   # keep it a string if you dont need multiple languages
   'text': 'Drop a message!',
