@@ -29,6 +29,8 @@ PATH = 'content'
 PAGE_PATHS = ['pages/en']
 ARTICLE_PATHS = ['blog']
 
+
+
 # Post and Pages path
 ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
@@ -127,15 +129,19 @@ DIRECT_TEMPLATES = [
   'search', # needed for tipue_search plugin
   'contact' # needed for the contact form
 ]
-
-EXTRA_PATH_METADATA = {
-#     'extra/custom.css': {'path': 'custom.css'},
-    'extra/robots.txt': {'path': 'robots.txt'},
-    'extra/favicon.ico': {'path': 'favicon.ico'}  # and this
-#    'extra/CNAME': {'path': 'CNAME'}
-#    'extra/LICENSE': {'path': 'LICENSE'},
-#    'extra/README': {'path': 'README'},
-}
+#
+# STATIC_PATHS = [
+#     'images', 'extra/robots.txt', 'extra/favicon.ico'
+#     ]
+#
+# EXTRA_PATH_METADATA = {
+# #     'extra/custom.css': {'path': 'custom.css'},
+#     'extra/robots.txt': {'path': 'robots.txt'},
+#     'extra/favicon.ico': {'path': 'favicon.ico'}  # and this
+# #    'extra/CNAME': {'path': 'CNAME'}
+# #    'extra/LICENSE': {'path': 'LICENSE'},
+# #    'extra/README': {'path': 'README'},
+# }
 
 # setup disqus
 DISQUS_SHORTNAME = 'gitcd-dev'
