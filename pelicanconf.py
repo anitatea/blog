@@ -3,13 +3,13 @@
 from __future__ import unicode_literals
 import os
 
-AUTHOR = 'Claudio Walser'
+AUTHOR = 'Anita Tran'
 SITENAME = 'FH5CO Marble Example'
 SITEDESCRIPTION = 'this is just an example page for the pelican-fh5co-marble theme.'
 SITEURL = 'http://localhost:8081'
 
 # plugins
-PLUGIN_PATHS = ['../pelican-plugins']
+PLUGIN_PATHS = ['pelican-plugins']
 PLUGINS = ['i18n_subsites', 'tipue_search']
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
@@ -18,7 +18,7 @@ THEME = '../pelican-fh5co-marble'
 I18N_GETTEXT_LOCALEDIR = '../pelican-fh5co-marble/locale/'
 I18N_GETTEXT_DOMAIN = 'messages'
 I18N_GETTEXT_NEWSTYLE = True
-TIMEZONE = 'Europe/Zurich'
+TIMEZONE = 'America/Toronto'
 DEFAULT_DATE_FORMAT = '%a, %d %b %Y'
 I18N_TEMPLATES_LANG = 'en_US'
 DEFAULT_LANG = 'en'
@@ -27,7 +27,15 @@ LOCALE = 'en_US'
 # content paths
 PATH = 'content'
 PAGE_PATHS = ['pages/en']
-ARTICLE_PATHS = ['blog/en']
+ARTICLE_PATHS = ['blog']
+
+# Post and Pages path
+ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
+PAGE_URL = 'pages/{slug}/'
+PAGE_SAVE_AS = 'pages/{slug}/index.html'
+YEAR_ARCHIVE_SAVE_AS = '{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = '{date:%Y}/{date:%m}/index.html'
 
 # i18n
 I18N_SUBSITES = {
@@ -39,38 +47,45 @@ I18N_SUBSITES = {
 }
 
 # logo path, needs to be stored in PATH Setting
-LOGO = '/images/logo.svg'
+LOGO = '/images/logo.png'
 
 # special content
 HERO = [
   {
-    'image': '/images/hero/background-1.jpg',
+    'image': '/images/hero/patientlywaiting.png',
     # for multilanguage support, create a simple dict
     'title': {
-      'en':'Some special content',
-      'de': 'Spezieller Inhalt'
+      'en':'Patiently Waiting',
     },
     'text': {
-      'en': 'Any special content you want to tease here',
+      'en': 'Check emergency room wait times around Toronto by choosing a day: https://patientlywaiting.herokuapp.com/',
       'de': 'Jeglicher spezieller Inhalt den Sie hier bewerben möchten'
     },
     'links': [
       {
-        'icon': 'icon-code',
-        'url': 'https://github.com/claudio-walser/pelican-fh5co-marble',
+        # 'icon': 'icon-code',
+        'icon':'fab fa-github fa-2x',
+        'url': 'https://github.com/anitatea/patiently_waiting',
         'text': 'Github'
       }
     ]
   }, {
-    'image': '/images/hero/background-2.jpg',
+    'image': '/images/hero/pokemon_go.png',
     # keep it a string if you dont need multiple languages
-    'title': 'Uh, special too',
+    'title': 'Pokemon Go - Prediction App',
     # keep it a string if you dont need multiple languages
-    'text': 'Keep hero.text and hero.title a string if you dont need multilanguage.',
-    'links': []
+    'text': 'A Pokémon predicting web-app bot based on one\'s IP location (latitude/longitude), weather, city, closeness to water and other geo-location features.',
+    'links': [
+      {
+        # 'icon': 'icon-code',
+        'icon':'icon-social-github-circular',
+        'url': 'https://github.com/anitatea/pokemon_go',
+        'text': 'Github'
+      }
+    ]
   }, {
     'image': '/images/hero/background-3.jpg',
-    'title': 'No Blogroll yet',
+    'title': 'A thing',
     'text': 'Because of space issues in the man-nav, i didnt implemented Blogroll links yet.',
     'links': []
   }, {
@@ -83,24 +98,21 @@ HERO = [
 
 # Social widget
 SOCIAL = (
-  ('Github', 'https://www.github.com/claudio-walser'),
-  ('Facebook', 'https://www.facebook.com'),
-  ('Twitter', 'https://www.twitter.com'),
-  ('Google+', 'https://plus.google.com')
+  ('Github', 'https://www.github.com/anitatea'),
+  ('LinkedIn', 'https://www.linkedin.com/in/anitat/'),
+  ('instagram', 'https://www.instagram.com/i.need.a.tea/')
+  ('Email', 'anita.tran38@gmail.com')
 )
 
 ABOUT = {
-  'image': '/images/about/about.jpeg',
-  'mail': 'info@gitcd.io',
+  'image': '/images/about/about.jpg',
+  'mail': 'anita.tran38@gmail.com',
   # keep it a string if you dont need multiple languages
-  'text': {
-    'en': 'Learn more about the creator of this theme or just drop a message.',
-    'de': 'Lernen Sie den Author kennen oder hinterlassen Sie einfach eine Nachricht'
-  },
+  'text': 'Drop a message!',
   'link': 'contact.html',
   # the address is also taken for google maps
-  'address': 'Zürich, Schweiz',
-  'phone': '+555-shoe'
+  'address': 'Toronto, Canada',
+  'github': 'https://github.com/anitatea/'
 }
 
 # navigation and homepage options

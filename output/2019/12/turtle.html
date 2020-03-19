@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Can you doodle with Python?</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Anita Tran" />
+    <meta name="description" content="Throughout all my years in elementary school to engineering at UofT, my notes have always been decorated with swirls, spirals and circular doodles. Well now all my notes are now digital... but my noodle still wants to doodle. Let's see how we can do this with Python. Math can help …" />
+    <meta name="keywords" content="">
+<!-- Facebook and Twitter integration -->
+<meta property="og:site_name" content="FH5CO Marble Example"/>
+<meta property="og:title" content="Can you doodle with Python?"/>
+<meta property="og:description" content="Throughout all my years in elementary school to engineering at UofT, my notes have always been decorated with swirls, spirals and circular doodles. Well now all my notes are now digital... but my noodle still wants to doodle. Let's see how we can do this with Python. Math can help …"/>
+<meta property="og:url" content="http://localhost:8081/2019/12/turtle.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-12-23 00:00:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://localhost:8081/author/anita-tran.html">
+<meta property="article:section" content="blog"/>
+    <meta property="og:image" content="http://localhost:8081//images/blog/blog_2.jpeg">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <!-- <link rel="stylesheet" type="text/css" href="http://localhost:8081/theme/css/icomoon.css"> -->
+
+    <script src="https://kit.fontawesome.com/d51a65b9ad.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/bootstrap.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/flexslider.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/style.css">
+    <!-- Custom style  -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/custom.css">
+    <!-- pygments code highlight -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/css/pygments.css">
+    <!-- tipue search -->
+    <link rel="stylesheet" href="http://localhost:8081/theme/tipuesearch/css/tipuesearch.css">
+
+    <!-- Modernizr JS -->
+    <script src="http://localhost:8081/theme/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="/theme/js/respond.min.js"></script>
+    <![endif]-->
+        <link href="http://localhost:8081/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="FH5CO Marble Example Atom">
+
+
+    <style>
+    img {
+      width: 100%;
+      height: auto;
+    }
+    </style>
+
+
+    </head>
+    <body>
+    <div id="fh5co-page">
+        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+        <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+
+            <nav class="fh5co-main-menu" role="navigation">
+              <ul class="fh5co-active"><h2 class="fh5co-heading-colored" href="http://localhost:8081/">Anita Tran</h2></ul>
+                <!--     <ul class="language-navigation">
+        <li>
+                <a class="lang-active" href="http://localhost:8081/">en</a>
+                <a href="http://localhost:8081/de/">de</a>
+        </li>
+    </ul>
+ -->
+            </nav>
+            <div class="clearfix"></div>
+            <h1 id="fh5co-logo">
+                <a href="http://localhost:8081/index.html">
+                    <img src="/images/logo.png"/>
+                </a>
+            </h1>
+            <nav class="fh5co-main-menu" role="navigation">
+<ul>
+    <!-- home link -->
+    <li><a href="http://localhost:8081/">Home</a></li>
+
+    <!-- page links -->
+            <li><a href="http://localhost:8081/pages/about/">About</a></li>
+
+
+    <!-- categories -->
+        <li><a href="http://localhost:8081/categories.html">Categories</a></li>
+
+    <!-- tags -->
+        <li><a href="http://localhost:8081/tags.html">Tags</a></li>
+
+    <!-- additional menu items from config -->
+        <!-- <li class="nav-title">Misc</li> -->
+            <li><a href="http://localhost:8081/archives.html">Archive</a></li>
+            <li><a href="http://localhost:8081/contact.html">Contact</a></li>
+
+</ul>
+<ul><li><form id="searchform" action="http://localhost:8081/search.html">
+    <input id="tipue_search_input" data-siteurl="http://localhost:8081" type="text" size="60" class="form-control search-field" name="q">
+
+    <button type="submit" class="btn btn-primary search-submit"><i class="icon-blog"></i></button>
+</form></li></ul>
+            </nav>
+
+<ul id="social">
+            <li><a href="https://www.github.com/anitatea" alt="Github"><i class="fab fa-github fa-2x"></i></a></li>
+
+            <li><a href="https://www.linkedin.com/in/anitat/" alt="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a></li>
+
+</ul>
+        </aside>
+
+        <div id="fh5co-main">
+
+    <div class="fh5co-narrow-content article-content">
+        <h1 class="fh5co-heading-colored">Can you doodle with Python?</h1>
+
+        <div>by
+                <a href="author/anita-tran.html">Anita Tran</a> - Mon, 23 Dec 2019
+        </div>
+
+
+        <div class="animate-box" data-animate-effect="fadeInLeft">
+            <p class="animate-box" data-animate-effect="fadeInLeft"><!-- https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260 -->
+
+<p>Throughout all my years in elementary school to engineering at UofT, my notes have always been decorated with swirls, spirals and circular doodles. Well now all my notes are now digital... but my noodle still wants to doodle.</p>
+<p><img src= 'https://i.kym-cdn.com/photos/images/original/001/152/468/e60.png' width='200'></p>
+<p>Let's see how we can do this with Python. Math can help us do the trick.</p>
+<h3><a href="http://mathworld.wolfram.com/RecamansSequence.html">The Recamán Sequence</a></h3>
+<p>Let me introduce: The Recamán Sequence. It features a simple sequence of integers, which processed with Python, can produce some beautiful doodles.</p>
+<p>Here are the rules:
+1. Start at zero.
+2. Every step you take will be 1 more than the last step.
+3. If it’s possible to step backward (negatively), do so. Backward steps are only allowed if the resulting location is positive (greater than zero) and if that number has not occurred in our sequence yet. Otherwise step forward.</p>
+<p>Here's an example. Let's look at the beginning of the sequence:
+Start at zero.
+- 0</p>
+<p>Our step size will be 1. Stepping backward would put us at -1 (from 0) which is not allowed. We step forward.
+- 0 -&gt; 1</p>
+<p>Next step size is 2. Stepping backward would put us at -1 (from 1) therefore we will step forward again.
+- 0 -&gt; 1 -&gt; 3</p>
+<h3>Turtle Graphics</h3>
+<p>A relatively simple library, using a relative cursor (the 'turtle') which we will be following on a Cartesian plane. It has three attributes: location, orientation and a pen (the 'turtle').
+Anyone with Python can get started with Turtle! It's already pre-packaged in the Python standard library.</p>
+<h3>The Code</h3>
+<p>First, let's import the library and set-up our drawing canvas.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">startx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">starty</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">doodle</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>  <span class="c1"># A good name for our turtle</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s2">&quot;turtle&quot;</span><span class="p">)</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Not a turtle setting - used to scale the drawing</span>
+</pre></div>
+
+
+<p>Now I'll move our turtle pen to start on the left. This will give our turtle more room to work with.</p>
+<div class="highlight"><pre><span></span><span class="n">doodle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">setpos</span><span class="p">(</span><span class="o">-</span><span class="mi">390</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Set on a Cartesian plane, e.g. (x,y)</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+</pre></div>
+
+
+<p>A few other housekeeping items.</p>
+<div class="highlight"><pre><span></span><span class="n">doodle</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span> <span class="c1"># Our pen color</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="c1"># Our turtle color</span>
+
+<span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># Here&#39;s how we know where we are</span>
+<span class="n">seen</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># A list to keep track of where we&#39;ve been</span>
+</pre></div>
+
+
+<p>Take a step forward if our result is positive and if we have not been there before.</p>
+<div class="highlight"><pre><span></span><span class="c1"># Step increases by 1 each time</span>
+<span class="k">for</span> <span class="n">step_size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+
+    <span class="n">backwards</span> <span class="o">=</span> <span class="n">current</span> <span class="o">-</span> <span class="n">step_size</span>
+
+    <span class="c1"># Step backwards if its positive and we&#39;ve never been there before</span>
+    <span class="k">if</span> <span class="n">backwards</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">backwards</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+        <span class="n">doodle</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>  <span class="c1"># 90 degrees is pointing straight up</span>
+        <span class="c1"># 180 degrees means &quot;draw a semicircle&quot;</span>
+        <span class="n">doodle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">step_size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">backwards</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+
+    <span class="c1"># Otherwise, go forward</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">doodle</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="mi">270</span><span class="p">)</span>  <span class="c1"># 270 degrees is straight down</span>
+        <span class="n">doodle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">step_size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">+=</span> <span class="n">step_size</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+
+<span class="n">turtle</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+</pre></div>
+
+
+<p><img src= 'https://github.com/anitatea/blog/blob/master/content/images/turtle.png?raw=true'></p>
+<p><img src= 'https://github.com/anitatea/blog/blob/master/content/images/turtle_vid.gif?raw=true'></p>
+<p>All done! The concatenated code for this article is below for your reference to try the whole thing by yourself.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">turtle</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Screen</span><span class="p">()</span>
+<span class="n">window</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">startx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">starty</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">doodle</span> <span class="o">=</span> <span class="n">turtle</span><span class="o">.</span><span class="n">Turtle</span><span class="p">()</span>  <span class="c1"># A good name for our turtle</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="s2">&quot;turtle&quot;</span><span class="p">)</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">speed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">scale</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># Not a turtle setting - used to scale the drawing</span>
+
+<span class="n">doodle</span><span class="o">.</span><span class="n">penup</span><span class="p">()</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">setpos</span><span class="p">(</span><span class="o">-</span><span class="mi">390</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">pendown</span><span class="p">()</span>
+
+<span class="n">doodle</span><span class="o">.</span><span class="n">color</span><span class="p">(</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">doodle</span><span class="o">.</span><span class="n">fillcolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">current</span> <span class="o">=</span> <span class="mi">0</span>   <span class="c1"># Here&#39;s how we know where we are</span>
+<span class="n">seen</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># A list to keep track of where we&#39;ve been</span>
+
+<span class="c1"># Step increases by 1 each time</span>
+<span class="k">for</span> <span class="n">step_size</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+
+    <span class="n">backwards</span> <span class="o">=</span> <span class="n">current</span> <span class="o">-</span> <span class="n">step_size</span>
+
+    <span class="c1"># Step backwards if its positive and we&#39;ve never been there before</span>
+    <span class="k">if</span> <span class="n">backwards</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">backwards</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen</span><span class="p">:</span>
+        <span class="n">doodle</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span>  <span class="c1"># 90 degrees is pointing straight up</span>
+        <span class="c1"># 180 degrees means &quot;draw a semicircle&quot;</span>
+        <span class="n">doodle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">step_size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">backwards</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+
+    <span class="c1"># Otherwise, go forwards</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">doodle</span><span class="o">.</span><span class="n">setheading</span><span class="p">(</span><span class="mi">270</span><span class="p">)</span>  <span class="c1"># 270 degrees is straight down</span>
+        <span class="n">doodle</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">scale</span> <span class="o">*</span> <span class="n">step_size</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+        <span class="n">current</span> <span class="o">+=</span> <span class="n">step_size</span>
+        <span class="n">seen</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+
+<span class="n">turtle</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+</pre></div></p>
+        </div>
+    </div>
+
+<div class="fh5co-narrow-content">
+<div class="animate-box" data-animate-effect="fadeInLeft">
+    <h2><!-- <i class="icon-speech-bubble"></i>  -->Comments</h2>
+</div>
+<div class="animate-box" data-animate-effect="fadeInLeft">
+    <div id="disqus_thread"></div>
+</div>
+
+<script>
+var disqus_config = function () { 
+  this.language = "en";
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://gitcd-dev.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript><a href="https://disqus.com/?ref_noscript">Please enable JavaScript to view the comments powered by Disqus.</a></noscript>
+<div class="fh5co-footer">
+    <p><small>&copy; Anita Tran 2020 - Built with <a href="http://getpelican.com" target="_blank">Pelican</a>.</span> <span><a href="https://github.com/claudio-walser/pelican-fh5co-marble" target="_blank">FreeHTML5.co Marble Design</a></span>
+    <br /></small></p>
+</div>        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="http://localhost:8081/theme/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="http://localhost:8081/theme/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="http://localhost:8081/theme/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="http://localhost:8081/theme/js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="http://localhost:8081/theme/js/jquery.flexslider-min.js"></script>
+
+
+    <!-- MAIN JS -->
+    <script src="http://localhost:8081/theme/js/main.js"></script>
+    </body>
+</html>

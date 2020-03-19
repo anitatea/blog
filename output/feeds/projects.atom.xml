@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>FH5CO Marble Example - Projects</title><link href="http://localhost:8081/" rel="alternate"></link><link href="http://localhost:8081/feeds/projects.atom.xml" rel="self"></link><id>http://localhost:8081/</id><updated>2020-03-12T00:00:00-04:00</updated><entry><title>Using emergency room hospital data to predict wait times</title><link href="http://localhost:8081/2020/03/patientlywaiting.html" rel="alternate"></link><published>2020-03-12T00:00:00-04:00</published><updated>2020-03-12T00:00:00-04:00</updated><author><name>Anita Tran</name></author><id>tag:localhost,2020-03-12:/2020/03/patientlywaiting.html</id><summary type="html">&lt;!-- https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260 --&gt;
+
+&lt;p&gt;Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional?&lt;/p&gt;
+&lt;p&gt;It sucks. And there should definitely be a better system, right? Having volunteered …&lt;/p&gt;</summary><content type="html">&lt;!-- https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260 --&gt;
+
+&lt;p&gt;Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional?&lt;/p&gt;
+&lt;p&gt;It sucks. And there should definitely be a better system, right? Having volunteered at Toronto Western Hospital Emergency Department and being able to experience both sides of the system, I wanted to dig deep at what's really going on and to actually do something about it.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://github.com/anitatea/patiently_waiting/raw/master/static/img/ss.png?raw=true width=300"&gt;&lt;/p&gt;
+&lt;p&gt;Technologies Used
+&lt;em&gt;Python
+&lt;/em&gt;Pandas
+&lt;em&gt;pipenv - for local storage of credentials
+&lt;/em&gt;Beautiful Soup - Web Scraping
+&lt;em&gt;SKLearn pipelines
+&lt;/em&gt;DataFrameMapper
+&lt;em&gt;HDBSCAN clustering
+&lt;/em&gt;Flask
+*Google Maps API&lt;/p&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;PATIENTLY WAITING was created as my capstone project for the Data Science Immersive program at Bitmaker / General Assembly. A beta version of this application can be found here! Check emergency room wait times around Toronto by choosing a day: https://patientlywaiting.herokuapp.com/&lt;/p&gt;
+&lt;h3&gt;Data Gathering&lt;/h3&gt;
+&lt;p&gt;Detailed administrative data on date, patient flow, current and past examinations in Ontario was provided by:
+* &lt;a href="https://www.cihi.ca/en/national-ambulatory-care-reporting-system-metadata"&gt;National Ambulatory Care Reporting System (NACRS)&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.cihi.ca/en/access-data-and-report"&gt;Canadian Institude for Health Information (CIHI)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Data Modeling&lt;/h3&gt;
+&lt;p&gt;The ability to accurately and reliably predict waiting times at walk-in hospital facilities can increase both patient satisfaction and hospital efficiency via a better management of patient flow. My web-app implements machine learning (ML) models to predict waiting times in the Emergency Room (ER) of the largest public hospital in the Greater Toronto Area (GTA).&lt;/p&gt;
+&lt;p&gt;Several machine learning (ML) techniques were evaluated to find the most accurate and useful prediction to a user. I chose &lt;a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d"&gt;Gradient Boosting&lt;/a&gt; among other regression models explored for predicting wait times.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;PATIENTLY WAITING&lt;/strong&gt; is currently in beta testing. If you notice any bugs, have any questions or suggestions, I'd love to hear from you: &lt;a href="anita.tran38@gmail.com?subject=PatientlyWaiting"&gt;anita.tran38@gmail.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://media.makeameme.org/created/me-patiently-waiting-399b1150e6.jpg" width=300&gt;&lt;/p&gt;
+&lt;h3&gt;Planned Future Enhancements&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker for hosting database, nginx and flask web app&lt;/li&gt;
+&lt;li&gt;Google API to read your location&lt;/li&gt;
+&lt;li&gt;Actively scrape hospital data as it is released per month on hqontatio.ca&lt;/li&gt;
+&lt;li&gt;Generate best route to hospital using combinatorial optimization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you’d like to play around with the tool, a beta version is running here: https://patientlywaiting.herokuapp.com/&lt;/p&gt;
+&lt;p&gt;The complete project source code (which is still in the process of being updated) can be found on &lt;a href="https://github.com/anitatea/patiently_waiting"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="Projects"></category></entry></feed>
