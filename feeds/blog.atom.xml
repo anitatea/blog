@@ -819,7 +819,7 @@ Mimesis is a Python library, which helps generate mock data for various purposes
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# filter for 2016&lt;/span&gt;
 &lt;span class="n"&gt;df_2016&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-&lt;span class="c1"&gt;# filter for 2016&lt;/span&gt;
+&lt;span class="c1"&gt;# filter for 2017&lt;/span&gt;
 &lt;span class="n"&gt;df_2017&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -835,7 +835,7 @@ Mimesis is a Python library, which helps generate mock data for various purposes
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now were ready to build out the actual Dash app.&lt;/p&gt;
+&lt;p&gt;Now we're ready to build the Dash app.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dash&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Dash&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Div&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;children&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
@@ -868,7 +868,8 @@ Mimesis is a Python library, which helps generate mock data for various purposes
 
 
 &lt;p&gt;Here's our nice interactive graph:&lt;/p&gt;
-&lt;p&gt;&lt;img src = 'https://github.com/anitatea/blog/blob/master/content/videos/dash_example.gif?raw=true'&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src = './videos/dash_example.gif'&gt;&lt;/p&gt;
+&lt;p&gt;./videos/dash_example.gif&lt;/p&gt;
 &lt;p&gt;Pretty great when you think how much engagement you can get with a simple application of 35 lines of code. You can find the above example available on github.&lt;/p&gt;
 &lt;p&gt;Not only is the layout and look of dash clean and report-ready; Dash also took care of scaling the interactivity on different browsers. So we can focus on beautiful, pure python!&lt;/p&gt;
 &lt;p&gt;The entire code:&lt;/p&gt;
