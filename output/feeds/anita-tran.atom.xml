@@ -6,7 +6,7 @@
 
 &lt;p&gt;Have you ever stepped foot in the emergency room of a hospital in Toronto either for a loved one or perhaps yourself, only to be met with a grueling long wait until you see any medical professional?&lt;/p&gt;
 &lt;p&gt;It sucks. And there should definitely be a better system, right? Having volunteered at Toronto Western Hospital Emergency Department and being able to experience both sides of the system, I wanted to dig deep at what's really going on and to actually do something about it.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://github.com/anitatea/patiently_waiting/raw/master/static/img/ss.png?raw=true width=300"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://github.com/anitatea/patiently_waiting/raw/master/static/img/ss.png?raw=true width=100"&gt;&lt;/p&gt;
 &lt;p&gt;Technologies Used
 &lt;em&gt;Python
 &lt;/em&gt;Pandas
@@ -654,14 +654,14 @@ This is important as we want to test how our model performs on data not yet seen
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;code&gt;CustomerID 14646&lt;/code&gt; is estimated to have a CLV of over $200K. Using this analysis, I can see the value it can bring such as identifying traits and features of valuable customers.&lt;/p&gt;</content><category term="blog"></category></entry><entry><title>Are you done with fake (news, friends, etc.)?</title><link href="https://anitatea.github.io/blog/2020/02/mimesis.html" rel="alternate"></link><published>2020-02-03T00:00:00-05:00</published><updated>2020-02-03T00:00:00-05:00</updated><author><name>Anita Tran</name></author><id>tag:anitatea.github.io,2020-02-03:/blog/2020/02/mimesis.html</id><summary type="html">&lt;!-- https://images.pexels.com/photos/2315712/pexels-photo-2315712.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940 --&gt;
+&lt;p&gt;&lt;code&gt;CustomerID 14646&lt;/code&gt; is estimated to have a CLV of over $200K. Using this analysis, I can see the value it can bring such as identifying traits and features of valuable customers.&lt;/p&gt;</content><category term="blog"></category></entry><entry><title>Generating fake data with Mimesis</title><link href="https://anitatea.github.io/blog/2020/02/mimesis.html" rel="alternate"></link><published>2020-02-03T00:00:00-05:00</published><updated>2020-02-03T00:00:00-05:00</updated><author><name>Anita Tran</name></author><id>tag:anitatea.github.io,2020-02-03:/blog/2020/02/mimesis.html</id><summary type="html">&lt;!-- https://images.pexels.com/photos/2315712/pexels-photo-2315712.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940 --&gt;
 
 &lt;p&gt;The Fitbit I got during the holidays got me thinking. How do these health app developers get their data to test their data? Do they really survey thousands of people about their personal data or manually input health data one by one?
 Isn't there a more efficient way to get …&lt;/p&gt;</summary><content type="html">&lt;!-- https://images.pexels.com/photos/2315712/pexels-photo-2315712.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=650&amp;w=940 --&gt;
 
 &lt;p&gt;The Fitbit I got during the holidays got me thinking. How do these health app developers get their data to test their data? Do they really survey thousands of people about their personal data or manually input health data one by one?
 Isn't there a more efficient way to get this data?&lt;/p&gt;
-&lt;p&gt;img src = &amp;lt;"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmemecrunch.com%2Fmeme%2F7VYF%2Ffake-people%2Fimage.png&amp;amp;f=1&amp;amp;nofb=1&amp;gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmemecrunch.com%2Fmeme%2F7VYF%2Ffake-people%2Fimage.png&amp;f=1&amp;nofb=1&gt;&lt;/p&gt;
 &lt;p&gt;For this blog, let me tell you where "fake" things (data) will come in handy.&lt;/p&gt;
 &lt;h3&gt;Introducing Mimisis&lt;/h3&gt;
 &lt;p&gt;The ability to generate mock but valid data comes in handy in app development, where you need to work with databases. Filling in the database by hand is a time-consuming and tedious process, which can be done in three stages — gathering necessary information, post-processing the data and coding the data generator itself. It gets really complicated when you need to generate not just 10–15 users, but 100–150 thousand users (or other types of data). In this article as well as the two following ones we will introduce you to a tool, which immensely simplifies generating mock data, initial database loading and testing in general.
@@ -701,21 +701,17 @@ Mimesis is a Python library, which helps generate mock data for various purposes
 
 
 &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;gender&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;weight(kg)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;height(m)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;dna_sequence&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;rna_sequence&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;smoker&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category></entry><entry><title>Epic visualizations to plot epidemics</title><link href="https://anitatea.github.io/blog/2020/01/dash-plotly.html" rel="alternate"></link><published>2020-01-27T00:00:00-05:00</published><updated>2020-01-27T00:00:00-05:00</updated><author><name>Anita Tran</name></author><id>tag:anitatea.github.io,2020-01-27:/blog/2020/01/dash-plotly.html</id><summary type="html">&lt;!-- https://images.pexels.com/photos/1164536/pexels-photo-1164536.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260 --&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="blog"></category></entry><entry><title>Epic visualizations to plot epidemics</title><link href="https://anitatea.github.io/blog/2020/01/dash-plotly.html" rel="alternate"></link><published>2020-01-18T00:00:00-05:00</published><updated>2020-01-18T00:00:00-05:00</updated><author><name>Anita Tran</name></author><id>tag:anitatea.github.io,2020-01-18:/blog/2020/01/dash-plotly.html</id><summary type="html">&lt;!-- https://images.pexels.com/photos/1164536/pexels-photo-1164536.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260 --&gt;
 
-&lt;p&gt;Data visualization is one of my favourite creative outlets - to draw out deeper insights from meaningful data. Like this.&lt;/p&gt;
-&lt;p&gt;&lt;img src= 'http://lh6.ggpht.com/_gKQKwLZ8XUs/S9imwa3sgvI/AAAAAAAACiE/vM0kklCnsAk/s800/Graphjam-Essay.jpg'&gt;&lt;/p&gt;
-&lt;p&gt;(Image source: &lt;a href="https://www.boredpanda.com/35-extremely-funny-graphs-and-charts/?utm_source=duckduckgo&amp;amp;utm_medium=referral&amp;amp;utm_campaign=organic"&gt;Graphjam.com&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Data visualization is one of my favourite creative outlets - to draw out deeper insights from meaningful data.&lt;/p&gt;
 &lt;p&gt;Visualization packages in Python is far from scarce and there are great options for static graphs.&lt;/p&gt;
-&lt;p&gt;However, as data gets more complex and understanding becomes more distant …&lt;/p&gt;</summary><content type="html">&lt;!-- https://images.pexels.com/photos/1164536/pexels-photo-1164536.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260 --&gt;
+&lt;p&gt;However, as data gets more complex and understanding becomes more distant, there is an obvious need for …&lt;/p&gt;</summary><content type="html">&lt;!-- https://images.pexels.com/photos/1164536/pexels-photo-1164536.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260 --&gt;
 
-&lt;p&gt;Data visualization is one of my favourite creative outlets - to draw out deeper insights from meaningful data. Like this.&lt;/p&gt;
-&lt;p&gt;&lt;img src= 'http://lh6.ggpht.com/_gKQKwLZ8XUs/S9imwa3sgvI/AAAAAAAACiE/vM0kklCnsAk/s800/Graphjam-Essay.jpg'&gt;&lt;/p&gt;
-&lt;p&gt;(Image source: &lt;a href="https://www.boredpanda.com/35-extremely-funny-graphs-and-charts/?utm_source=duckduckgo&amp;amp;utm_medium=referral&amp;amp;utm_campaign=organic"&gt;Graphjam.com&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Data visualization is one of my favourite creative outlets - to draw out deeper insights from meaningful data.&lt;/p&gt;
 &lt;p&gt;Visualization packages in Python is far from scarce and there are great options for static graphs.&lt;/p&gt;
-&lt;p&gt;However, as data gets more complex and understanding becomes more distant, there is an obvious need for interactive visualizations to more easily explore data.&lt;/p&gt;
-&lt;h3&gt;What's &lt;a href="https://plot.ly/"&gt;Dash&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;em&gt;"Bringing data science out of the lab and into the business.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;However, as data gets more complex and understanding becomes more distant, there is an obvious need for interactive visualizations to easily explore data. What I'm currently exploring is Plotly and my favourite part so far is the extensive documentation and highlighted projects made with Plotly.&lt;/p&gt;
+&lt;h3&gt;What's &lt;a href="https://plot.ly/"&gt;Plotly/Dash&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;"Bringing data science out of the lab and into the business."&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Formally only available for enterprise, Dash is now an open source library (free!) for creating interactive web-based visualizations. Highly interactive web application using Python or R.&lt;/p&gt;
 &lt;p&gt;HTML/CSS/JavaScript not required &lt;em&gt;(... and the door is that-a-way)&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;What I think makes it powerful is it is able to incorporate all the functionalities of Python for data manipulation and much more.&lt;/p&gt;
@@ -864,7 +860,7 @@ Mimesis is a Python library, which helps generate mock data for various purposes
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# filter for 2016&lt;/span&gt;
 &lt;span class="n"&gt;df_2016&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2016&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 
-&lt;span class="c1"&gt;# filter for 2016&lt;/span&gt;
+&lt;span class="c1"&gt;# filter for 2017&lt;/span&gt;
 &lt;span class="n"&gt;df_2017&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Year&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -880,7 +876,7 @@ Mimesis is a Python library, which helps generate mock data for various purposes
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now were ready to build out the actual Dash app.&lt;/p&gt;
+&lt;p&gt;Now we're ready to build the Dash app.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dash&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Dash&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;layout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Div&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;children&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;
@@ -913,7 +909,8 @@ Mimesis is a Python library, which helps generate mock data for various purposes
 
 
 &lt;p&gt;Here's our nice interactive graph:&lt;/p&gt;
-&lt;p&gt;&lt;img src = 'https://github.com/anitatea/blog/blob/master/content/videos/dash_example.gif?raw=true'&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src = './videos/dash_example.gif'&gt;&lt;/p&gt;
+&lt;p&gt;./videos/dash_example.gif&lt;/p&gt;
 &lt;p&gt;Pretty great when you think how much engagement you can get with a simple application of 35 lines of code. You can find the above example available on github.&lt;/p&gt;
 &lt;p&gt;Not only is the layout and look of dash clean and report-ready; Dash also took care of scaling the interactivity on different browsers. So we can focus on beautiful, pure python!&lt;/p&gt;
 &lt;p&gt;The entire code:&lt;/p&gt;

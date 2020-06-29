@@ -2,9 +2,9 @@ About
 #####
 
 :order: 1
-:date: 2018-01-25 08:46
-:icon: icon-link2
-:summary: Learn about the author.
+:date: 2020-03-17 08:46
+:icon: fas fa-mug-hot
+:summary: Hi there!
 :lang: en
 :slug: about
 
@@ -16,11 +16,10 @@ Profession
 ----------
 .. container:: float-left
 
-    .. image:: /images/about/about.jpeg
+    .. image:: /images/about/about.jpg
         :width: 150px
 
-Well, as you can see I like wallace and gromit. I'm looking for opportunities as a Data Science and like Python most. I am able to write HTML/CSS/JavaScript but it's definitely not my favorite. Ehm, even if I don't like it very much, it's still useful here and there. Trying to get warm with golang (dislike absence of exceptions) and hater of ruby/perl. NodeJS is cool as well.
-Bash is very useful but ugly as hell.
+Welcome to my blog - I actually really like design but I love data science. I'm looking for opportunities as a Data Science and like Python most. I am able to write HTML/CSS/JavaScript but it's definitely not my favorite. Ehm, even if I don't like it very much, it's still useful here and there - it got your attention right?
 
 
 Spare time

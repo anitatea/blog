@@ -49,7 +49,7 @@ I18N_SUBSITES = {
 }
 
 # logo path, needs to be stored in PATH Setting
-LOGO = './images/logo.png'
+LOGO = '../images/logo.png'
 
 # special content
 HERO = [

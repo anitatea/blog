@@ -1,4 +1,4 @@
-title: Are you done with fake (news, friends, etc.)?
+title: Generating fake data with Mimesis
 Date: 2020-02-03
 Slug: mimesis
 image: ./images/blog/blog_5.jpeg
@@ -7,7 +7,7 @@ image: ./images/blog/blog_5.jpeg
 The Fitbit I got during the holidays got me thinking. How do these health app developers get their data to test their data? Do they really survey thousands of people about their personal data or manually input health data one by one?
 Isn't there a more efficient way to get this data?
 
-img src = <"https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmemecrunch.com%2Fmeme%2F7VYF%2Ffake-people%2Fimage.png&f=1&nofb=1>
+<img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fmemecrunch.com%2Fmeme%2F7VYF%2Ffake-people%2Fimage.png&f=1&nofb=1>
 
 For this blog, let me tell you where "fake" things (data) will come in handy.
 
