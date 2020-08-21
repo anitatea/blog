@@ -29,8 +29,6 @@ PATH = 'content'
 PAGE_PATHS = ['pages/en']
 ARTICLE_PATHS = ['blog']
 
-
-
 # Post and Pages path
 ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{slug}.html'
@@ -150,5 +148,5 @@ DISQUS_ON_PAGES = False # if true its just displayed on every static page, like 
 # setup google maps
 GOOGLE_MAPS_KEY = 'AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA'
 
-#google tracking idea
-GOOGLE_TRACKING_ID = "G-Q5LN56BLH8"
+#google tracking id
+GOOGLE_TRACKING_ID = 'UA-176092657-1'
