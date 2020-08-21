@@ -149,3 +149,6 @@ DISQUS_ON_PAGES = False # if true its just displayed on every static page, like 
 
 # setup google maps
 GOOGLE_MAPS_KEY = 'AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA'
+
+#google tracking idea
+GOOGLE_TRACKING_ID = "G-Q5LN56BLH8"
